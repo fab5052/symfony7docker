@@ -101,17 +101,12 @@ CMD ["/usr/local/bin/docker-entrypoint.sh"]
 # # RUN chmod +x /usr/bin/entrypoint
 
 RUN COMPOSER_ALLOW_SUPERUSER=1
-
-# Add Entrypoint
-COPY ./automation/scripts/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
-
 # Run
 #CMD ["/usr/local/bin/docker-entrypoint.sh"]
 
 ENTRYPOINT ["bash", "docker-entrypoint.sh"]
 
-WORKDIR /var/www/
+WORKDIR /var/www/html
 
 EXPOSE 80
 
